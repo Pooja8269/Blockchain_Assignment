@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src='./../js/config.js'></script>
+    <style>
+            html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+             .innerDiv{
+                      padding: 10px 10px 20px 10px;
+                      border: 1px solid cyan;
+                      box-shadow: 7px 7px 5px #aaaaaa;
+                      margin: 1%;
+                  }
+  </style>
+ 
+</head>
+<body class="w3-light-grey">
+        <div class="w3-bar w3-top  w3-large" style="z-index:4; background-color:#337ab7; color:#FFFFFF;padding:0.5%;">
+                
+                <div class='col-md-9'>
+            <h3>Request Dashboard</h3>
+                </div>
+       
+                <div class='col-md-3'>
+            
+                <p id="displayToken" style="display:inline"></p>
+                <button class="btn btn-default" onclick="logout()" style="color:#337ab7;margin-left:2%;"><strong>Logout</strong></button>
+            </div>  
+
+        </div>
+
+    </div>
+        <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:0;width:300px; margin-top: 3%;" id="mySidebar"><br>
+            <div class="w3-container w3-row">
+                    <div class="w3-col s4" >
+                      <img src="https://cmporanga.tudotransparente.com.br/assets/img/userchat_guest.png" class="w3-circle w3-margin-right" style="width:46px">
+                    </div>
+                    <div class="w3-col s8 w3-bar" >
+                    <lable id="validuser"></lable>
+                    </div>
+         </div>
+            <hr>
+            
+            <div class="w3-bar-block">
+                <ul class="nav-pills" style="list-style: none;">
+                <li class="active"><a class="w3-bar-item w3-button w3-padding" data-toggle="tab" href="" onclick="return route('penidng');" style="text-decoration: none;"><i class="fa fa-money fa-fw"></i>Pending token request</a></li>
+               
+                <li> <a class="w3-bar-item w3-button w3-padding" data-toggle="tab" href="" onclick="return route('approved');" style="margin-top:2%; text-decoration: none;"><i class="fa fa-money fa-fw"></i>Approved token request</a></li>
+               
+        
+            </ul>
+           </div>
+          </nav>
+
+  
+        <div class="container">
+                <div id='adminContent'>
+                    
+                </div>
+        </div>     
+    <script type='text/javaScript' src='./../js/apicalling.js'></script>
+    <script src='./../js/transaction.js' type='text/javascript'></script>
+    <script src="./../js/admin.js" type="text/javascript"></script>
+    <script>
+
+var Username = sessionStorage.getItem("username");
+
+$(document).ready(function(){
+            $('#validuser').text('welcome, ' + Username);
+            
+        });
+
+            $(document).ready(function(){
+                getAdminBalance().then(() =>{
+                    getRequestCount().then(() => {
+                    $('#adminContent').load("penidng");}
+                )        
+                })
+             });
+    
+            function route(toPath){ 
+                $('#adminContent').load(toPath);
+                return false;
+            }
+        </script>
+        
+</body>
+</html>

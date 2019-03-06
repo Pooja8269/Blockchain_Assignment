@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="./../css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <script type='text/javaScript' src='./../js/apicalling.js'></script>
+   
+</head>
+<body style="background: #efefef;">
+<main class="login-form">
+    <div class="cotainer" id="loadContent" >
+        <div class="row justify-content-center">
+            <div class="col-md-4" style="margin-top:10%;">
+                <div class="card" >
+                    <div class="card-header" style="background:#337ab7; color:#FFFFFF; text-align:center; font-weight:500;">Login</div>
+                    <div class="card-body">
+                        <form action="" method="">
+                            <div class="form-group">
+                                <label class="col-md-4 col-form-label">User Name</label>
+                                <div class="col-md-12">
+                                        <input id="username"  type="text" name="inpUserInput" placeholder="Your Name" class="form-control" required autofocus>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 col-form-label">Password</label>
+                                <div class="col-md-12">
+                                        <input id="password" name="upass" type="password"   placeholder="Password" class="form-control" required> 
+                                </div>
+                            </div>
+                             <div class="col-md-12 offset-md-4">
+                                    <input class="btn btn-primary btn-login-submit m-t-md btm-clr" type="button" value="Login" onclick="callChkUser()" style="background:#337ab7; border:#337ab7; color:#FFFFFF;" />
+                                    <input class="btn btn-primary btn-login-submit m-t-md btm-clr" type="button" value="Register" onclick="callRegister()" style="background:#337ab7; border:#337ab7; color:#FFFFFF;" />
+                            </div>
+                          </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+<script type='text/javaScript'>
+
+    
+
+    function callChkUser(){
+    
+        var obj={
+            username: $('#username').val(),
+            password: $('#password').val()
+        }
+        chkUser((obj)); 
+         
+    }
+    
+    function callRegister(){
+        $('#loadContent').load('register');
+    }
+    </script>
+</body>
+</html>

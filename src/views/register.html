@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body style="background:#efefef;">
+<main class="login-form" >
+    <div class="cotainer" id="loadRegisterProcess" style="margin-top:10%;">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card" >
+                    <div class="card-header" style="background:#337ab7; color:#FFFFFF; text-align:center; font-weight:500;">Register</div>
+                    <div class="card-body">
+                        <form action="" method="">
+                            <div class="form-group">
+                                <label for="username" class="col-md-4 col-form-label">User Name</label>
+                                <div class="col-md-12">
+                                        <input id='username' type="text" class="form-control" name="inpUserInput" required autofocus />
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                    <label for="metamask" class="col-md-4 col-form-label">Metamask Address</label>
+                                    <div class="col-md-12">
+                                            <input id='metamask' type='text' class='form-control' required autofocus />
+                                    </div>
+                                </div>
+
+                            <div class="form-group">
+                                <label for="password" class="col-md-4 col-form-label">Password</label>
+                                <div class="col-md-12">
+                                        <input id='password'  type="password" class='form-control' name="inpPassword"  required />
+                                </div>
+                            </div>
+                             <div class="col-md-12 offset-md-4">
+                                    <input type="button" value="Next" class="btn btn-primary btn-login-submit m-t-md btm-clr" onclick="callRegister()" style="background:#337ab7; border:#337ab7; color:#FFFFFF;" />
+                                    <input type="submit" value="Cancel" class="btn btn-primary btn-login-submit m-t-md btm-clr" onclick="callCancel()" style="background:#337ab7; border:#337ab7; color:#FFFFFF;" />
+                            </div>
+                          </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+<script type="text/javascript">
+    function callRegister(){
+        var obj={
+            User_Name: $('#username').val(),
+              password: $('#password').val(),
+              key: $('#metamask').val(),
+        }
+        addUser(obj);   
+    }
+
+    function callCancel(){
+$('#loadContent').load('/');
+  }
+
+</script>
+</body>
+</html>

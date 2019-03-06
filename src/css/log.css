@@ -1,0 +1,32 @@
+#log
+{
+ height:230px;
+ width:430px;
+ background-color:#F5F5F5;
+ border:1px solid;
+ 
+ margin-left:450px;
+ margin-right:450px;
+ 
+ }
+ 
+ body
+ {
+  background-color:#FFFFFF;
+  }
+  
+  #up
+  {
+   padding-left:50px;
+   padding-right:50px;
+  }
+ 
+ #button
+ {
+ height:30px;
+ width:300px;
+ background-color:#07B195;
+ 
+
+ }
+ 

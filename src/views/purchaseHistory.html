@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Purchase History</title>
+</head>
+<body>
+        <div style="margin-top:10%;">
+    <div class='col-lg-3'>
+            <h3><strong>Purchase History</strong></h3>
+    </div>
+    <div class='col-lg-9'>
+        
+            <ul class="nav-pills" style="list-style: none;">
+                    <li class="active"><a class="w3-bar-item w3-button w3-padding" data-toggle="tab" href="#soldTab" onclick="loadSoldList()" style="text-decoration: none;"><i class="fa fa-history fa-fw"></i><strong>Sold item history</strong></a></li>
+                   
+                    <li> <a class="w3-bar-item w3-button w3-padding" data-toggle="tab" href="#purchaedTab" onclick="loadPurchasedList()" style="text-decoration: none; margin-left:4%;"><i class="fa fa-history fa-fw"></i><strong>Purchased item history</strong></a></li>
+   
+                </ul>
+    
+    </div>  
+</div>
+    <div class='tab-content'> 
+    <div id='soldTab' class='col-md-12 tab-pane fade in active'>
+        <div id="displaySoldList" class='col-md-12' style="margin-top:4%; text-align:center;">
+           
+        </div>
+    </div>
+    <div id='purchaedTab' class='col-md-12 tab-pane fade in'>
+        <div id="displayPurchaseList" class='col-md-12'style="margin-top:4%; text-align:center;">
+           
+        </div>    
+    </div>
+</div>
+</div>
+<script src="./../js/purchasehistory.js" type="text/javascript"></script>
+    
+<script>
+    $(document).ready(function(){
+        loadSoldList();
+    });
+    function loadSoldList(){
+        
+        getSoldListCount().then((data) => {
+            console.log(data);
+            $('#displaySoldList').html('');
+            displayItems(0,
+                            data,
+                            'displaySoldList')
+            
+        }).catch((err) =>{
+            console.log(err);
+        })
+    }
+    function loadPurchasedList(){
+        getPurchasedListCount().then((data) =>{
+            $('#displayPurchaseList').html('');
+            console.log(data);
+            displayItems(0,
+                    data,
+                    'displayPurchaseList'
+                    )
+          }).catch((err) =>{
+            console.log(err);
+          });
+        }
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+#log
+{
+ height:140px;
+ width:400px;
+ background-color:#F5F5F5;
+ border:1px solid;
+ 
+ margin-left:450px;
+ margin-right:450px;
+ 
+ }
+ 
+ body
+ {
+  background-color:#FFFFFF;
+  }
+  
+  #up
+  {
+   padding-left:60px;
+   padding-right:60px;
+  }
+ 
+ #button
+ {
+ height:30px;
+ width:310px;
+ background-color:#07B195;
+
+ }
+ 
